@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<!-- saved from url=(0050)file:///C:/xampp/htdocs/Prime%20Real%20Estate.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prime Real Estate | Malawi's Property Leader</title>
+    <!-- FontAwesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root { 
+            --primary: #079e32; 
+            --dark: #1c2122; 
+            --light: #3c803c; 
+            --white: #ffffff;
+            --gold: #c5a059;
+        }
+
+        /* Utility Classes */
+        .bg-white { background: var(--white); }
+        .text-center { text-align: center; }
+        .mt-20 { margin-top: 20px; }
+
+        body { font-family: 'Inter', 'Segoe UI', sans-serif; margin: 0; background: var(--light); color: var(--dark); line-height: 1.6; }
+        
+        /* Navigation */
+        nav { background: var(--white); padding: 1rem 5%; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 15px rgba(0,0,0,0.1); }
+        .logo { font-size: 1.5rem; font-weight: 800; color: var(--dark); text-decoration: none; display: flex; align-items: center; gap: 10px; }
+        .logo i { color: var(--primary); }
+        .logo img { height: 64px; }
+        .nav-links { display: flex; gap: 20px; align-items: center; }
+        .nav-links a { text-decoration: none; color: var(--dark); }
+        .nav-links a.btn { color: var(--white); /* Override for button link */ }
+
+        /* Hero & Search */
+        .hero { 
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com'); 
+            height: 60vh; background-size: cover; background-position: center; display: flex; flex-direction: column; justify-content: center; align-items: center; color: var(--white); text-align: center;
+        }
+        .search-bar { background: var(--white); padding: 20px; border-radius: 12px; display: flex; gap: 15px; width: 80%; max-width: 900px; transform: translateY(50%); box-shadow: 0 10px 30px rgba(0,0,0,0.2); }
+        .search-bar select, .search-bar input { border: 1px solid #ddd; padding: 12px; border-radius: 6px; flex: 1; }
+
+        /* Sections */
+        section { padding: 80px 5%; }
+        .section-title { text-align: center; margin-bottom: 50px; }
+        .section-title h2 { font-size: 2.2rem; color: var(--dark); margin-bottom: 10px; }
+        .section-title .underline { width: 60px; height: 4px; background: var(--primary); margin: 0 auto; }
+
+        /* Listing Cards */
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .card { background: var(--white); border-radius: 15px; overflow: hidden; transition: 0.3s; border: 1px solid #eee; }
+        .card:hover { transform: translateY(-10px); box-shadow: 0 15px 30px rgba(0,0,0,0.1); }
+        .card-img { height: 200px; background-size: cover; background-position: center; position: relative; }
+        img.card-img { width: 100%; height: 200px; object-fit: cover; display: block; }
+        .tag { position: absolute; top: 15px; left: 15px; background: var(--primary); color: white; padding: 5px 12px; border-radius: 4px; font-size: 0.8rem; font-weight: bold; }
+        .card-body { padding: 20px; }
+        .card .card-body i { display: block; margin-bottom: 10px; font-size: 1.4rem; }
+        .card-meta { display: flex; justify-content: space-between; align-items: center; font-size: 0.9rem; color: #666; }
+        .card-price { font-size: 1.5rem; font-weight: 800; color: var(--primary); }
+
+        /* Expertise Cards Container */
+        .expertise-grid { display: flex; gap: 30px; overflow: hidden; padding: 20px 0; }
+        .expertise-grid-inner { display: flex; gap: 30px; animation: scrollCards 40s linear infinite; }
+        .expertise-grid::-webkit-scrollbar { display: none; }
+        .expertise-grid { -ms-overflow-style: none; scrollbar-width: none; }
+        
+        /* Expertise Cards */
+        .expertise-card { text-align: center; background: var(--white); padding: 30px 20px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.08); transition: 0.3s; border: 1px solid #f0f0f0; flex: 0 0 300px; min-width: 300px; }
+        .expertise-card:hover { transform: translateY(-5px); box-shadow: 0 8px 25px rgba(0,0,0,0.12); }
+        .expertise-card i { display: inline-flex; align-items: center; justify-content: center; width: 70px; height: 70px; background: rgba(7,158,50,0.1); border-radius: 50%; margin-bottom: 15px; }
+        .expertise-card h3 { color: var(--dark); margin: 15px 0 10px; }
+        .expertise-card p { color: #666; font-size: 0.95rem; margin: 0; }
+        
+        @keyframes scrollCards {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-1950px);
+            }
+        }
+
+        /* Team Section */
+        .team-card { text-align: center; background: var(--white); padding: 15px; border-radius: 15px; }
+        .team-img { width: 85px; height: 85px; border-radius: 50%; object-fit: cover; margin-bottom: 8px; border: 3px solid var(--primary); }
+
+        /* FAQ Section */
+        .faq-item { background: var(--white); margin-bottom: 10px; padding: 20px; border-radius: 8px; cursor: pointer; border-left: 5px solid var(--primary); }
+
+        /* Contact & Footer */
+        .contact-container { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; }
+        .btn { background: var(--primary); color: white; padding: 15px 30px; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; transition: 0.3s; text-decoration: none; display: inline-block; }
+        .btn:hover { background: #068a2b; }
+        footer { background: var(--dark); color: white; padding: 60px 5% 20px; text-align: center; }
+        .footer-links { display: flex; justify-content: center; gap: 30px; margin: 30px 0; }
+        .footer-links a { color: white; text-decoration: none; opacity: 0.8; }
+        /* Added contact specific styles */
+        .contact-form input, .contact-form textarea { width: 100%; padding: 12px; margin-bottom: 15px; border-radius: 6px; border: 1px solid #ddd; box-sizing: border-box; font-family: inherit; font-size: 1rem; }
+        .filter-controls { display:flex;gap:12px;align-items:center;margin-bottom:18px;flex-wrap:wrap; }
+        .contact-info p { margin: 10px 0; }
+        .contact-info i { color: var(--primary); margin-right: 10px; }
+        
+        /* Services highlight animation */
+        .section-highlight { animation: sectionFlash 1.6s ease-in-out; box-shadow: 0 0 0 0 rgba(7,158,50,0.12); border-radius: 12px; }
+        @keyframes sectionFlash {
+            0% { box-shadow: 0 0 0 0 rgba(7,158,50,0); }
+            40% { box-shadow: 0 0 0 12px rgba(7,158,50,0.08); }
+            100% { box-shadow: 0 0 0 0 rgba(7,158,50,0); }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="file:///C:/xampp/htdocs/Prime%20Real%20Estate.html#" class="logo">
+            <img src="prime-logo.png.jpg" alt="Prime Real Estate Logo">
+        </a>
+        <div class="nav-links">
+            <a href="#listings">Buy Land</a>
+            <a href="#services">Services</a>
+            <a href="#contact" class="btn">Enquire Now</a>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <h1>Invest in Beyond Tomorrow.</h1>
+        <p> Start your property journey with Prime Real Estate today.
+
+        </p>
+        
+        <div class="search-bar">
+            <select><option>Location: All Malawi</option><option>Lilongwe</option><option>Blantyre</option></select>
+            <select><option>Type: Residential</option><option>Commercial</option><option>Farming</option></select>
+            <input type="text" placeholder="Max Price (MWK)">
+            <button class="btn"><i class="fas fa-search"></i> Search</button>
+        </div>
+    </header>
+
+    <section id="listings">
+        <div class="section-title">
+            <h2> Listings</h2>
+            <div class="underline"></div>
+        </div>
+        <div id="listingsGrid" class="grid">
+            <!-- Buy Card -->
+            <div class="card">
+                <img class="card-img" src="https://images.unsplash.com/photo-1560184897-6b3f2d257d3b?w=1200&auto=format&fit=crop&q=80" alt="Buy properties" onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 1200 800%22><rect width=%221200%22 height=%22800%22 fill=%22%23e6e6e6%22/><text x=%22600%22 y=%22420%22 font-size=%2248%22 text-anchor=%22middle%22 fill=%22%23666%22 font-family=%22Arial,%20sans-serif%22>Buy%20Image</text></svg>'">
+                <div class="card-body">
+                    <i class="fas fa-shopping-cart" aria-hidden="true"></i>
+                    <h3>Buy Properties</h3>
+                    <p>Explore curated listings and find your next property.</p>
+                    <p class="card-price">From MWK 1,500,000</p>
+                    <button id="buyBtn" class="btn">Browse Listings</button>
+                </div>
+            </div>
+            <!-- Sell Card -->
+            <div class="card">
+                <img class="card-img" src="https://images.unsplash.com/photo-1505691723518-36a5b8f0a2b8?w=1200&auto=format&fit=crop&q=80" alt="Sell property" onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 1200 800%22><rect width=%221200%22 height=%22800%22 fill=%22%23e6e6e6%22/><text x=%22600%22 y=%22420%22 font-size=%2248%22 text-anchor=%22middle%22 fill=%22%23666%22 font-family=%22Arial,%20sans-serif%22>Sell%20Image</text></svg>'">
+                <div class="card-body">
+                    <i class="fas fa-tag" aria-hidden="true"></i>
+                    <h3>Sell Your Property</h3>
+                    <p>Get a free valuation and reach verified buyers quickly.</p>
+                    <p><small style="color:#666;">Free valuation on request</small></p>
+                    <a href="#contact" id="sellBtn" class="btn">List Your Property</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NEW SECTION: Why Invest -->
+    <section id="services" class="bg-white">
+        <div class="section-title">
+            <h2>Our Expertise</h2>
+            <div class="underline"></div>
+        </div>
+        <div class="expertise-grid">
+            <div class="expertise-grid-inner">
+            <div class="expertise-card">
+                <i class="fas fa-hands-helping" style="font-size: 1.8rem; color: var(--primary);"></i>
+                <h3>Property Management</h3>
+                <p>Full property lifecycle management for investors.</p>
+            </div>
+            <div class="expertise-card">
+                <i class="fas fa-file-invoice-dollar" style="font-size: 1.8rem; color: var(--primary);"></i>
+                <h3>Legal Conveyancing</h3>
+                <p>We handle all paperwork to ensure a smooth transfer.</p>
+            </div>
+            <div class="expertise-card">
+                <i class="fas fa-chart-pie" style="font-size: 1.8rem; color: var(--primary);"></i>
+                <h3>Market Analysis</h3>
+                <p>Get data-driven insights into the fastest-growing areas in Malawi.</p>
+            </div>
+            <div class="expertise-card">
+                <i class="fas fa-ruler-combined" style="font-size: 1.8rem; color: var(--primary);"></i>
+                <h3>Land Surveying</h3>
+                <p>Professional surveying services to accurately measure and demarcate your property boundaries.</p>
+            </div>
+            <div class="expertise-card">
+                <i class="fas fa-building" style="font-size: 1.8rem; color: var(--primary);"></i>
+                <h3>Rental Properties</h3>
+                <p>Provision of quality rental properties for both short and long-term investments.</p>
+            </div>
+            <div class="expertise-card">
+                <i class="fas fa-handshake" style="font-size: 1.8rem; color: var(--primary);"></i>
+                <h3>Selling of Plots</h3>
+                <p>Seamless plot sales with comprehensive support from listing to final transaction.</p>
+            </div>
+            <!-- Duplicate cards for seamless loop -->
+            <div class="expertise-card">
+                <i class="fas fa-hands-helping" style="font-size: 1.8rem; color: var(--primary);"></i>
+                <h3>Property Management</h3>
+                <p>Full property lifecycle management for investors.</p>
+            </div>
+            <div class="expertise-card">
+                <i class="fas fa-file-invoice-dollar" style="font-size: 1.8rem; color: var(--primary);"></i>
+                <h3>Legal Conveyancing</h3>
+                <p>We handle all paperwork to ensure a smooth transfer.</p>
+            </div>
+            <div class="expertise-card">
+                <i class="fas fa-chart-pie" style="font-size: 1.8rem; color: var(--primary);"></i>
+                <h3>Market Analysis</h3>
+                <p>Get data-driven insights into the fastest-growing areas in Malawi.</p>
+            </div>
+            <div class="expertise-card">
+                <i class="fas fa-ruler-combined" style="font-size: 1.8rem; color: var(--primary);"></i>
+                <h3>Land Surveying</h3>
+                <p>Professional surveying services to accurately measure and demarcate your property boundaries.</p>
+            </div>
+            <div class="expertise-card">
+                <i class="fas fa-building" style="font-size: 1.8rem; color: var(--primary);"></i>
+                <h3>Rental Properties</h3>
+                <p>Provision of quality rental properties for both short and long-term investments.</p>
+            </div>
+            <div class="expertise-card">
+                <i class="fas fa-handshake" style="font-size: 1.8rem; color: var(--primary);"></i>
+                <h3>Selling of Plots</h3>
+                <p>Seamless plot sales with comprehensive support from listing to final transaction.</p>
+            </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NEW SECTION: Team -->
+    <section id="team">
+        <div class="section-title">
+            <h2>Meet The Team</h2>
+            <div class="underline"></div>
+        </div>
+        <div class="grid">
+            <div class="team-card">
+                <img src="David.jpg.png" alt="David Kasakula" class="team-img">
+                <h3>David Kasakula</h3>
+                <p style="color: var(--primary); font-weight: bold;">Managing Director</p>
+                <p>Leads the strategic vision for Prime Real Estate.</p>
+            </div>
+             <div class="team-card">
+                <img src="chisomo.jpg.jpg" alt="Chisomo Chaonekera" class="team-img">
+                <h3>Chisomo Chaonekera</h3>
+                <p style="color: var(--primary); font-weight: bold;">Sales and Marketing Officer</p>
+                <p>Manages all marketing and client outreach initiatives.</p>
+            </div>
+             <div class="team-card">
+                <img src="Charles.jpg.png" alt="Charles Sefasi" class="team-img">
+                <h3>Charles Sefasi</h3>
+                <p style="color: var(--primary); font-weight: bold;">Social Media Manager and Graphics Designer</p>
+                <p>Creates engaging visual content for all platforms.</p>
+            </div>
+             <div class="team-card">
+                <img src="Inno.jpg.png" alt="Innocent Kasamba" class="team-img">
+                <h3>Innocent Kasamba</h3>
+                <p style="color: var(--primary); font-weight: bold;">Chief Surveyor</p>
+                <p>Ensuring all plot sizes and boundaries are accurate and verified.</p>
+            </div>
+             <div class="team-card">
+                <img src="Anderson.jpg" alt="Anderson Chirwa" class="team-img">
+                <h3>Anderson Chirwa</h3>
+                <p style="color: var(--primary); font-weight: bold;">Accountant and Operations Manager</p>
+                <p>Oversees financial management and operational efficiency for Prime Real Estate.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- NEW SECTION: Contact -->
+    <section id="contact">
+        <div class="section-title">
+            <h2>Get In Touch</h2>
+            <div class="underline"></div>
+        </div>
+
+        <div class="contact-container">
+            <div class="contact-info">
+                <h3>Contact Details</h3>
+                <p><i class="fas fa-map-marker-alt"></i> Area 3 Near NBS, Lilongwe</p>
+                <p><i class="fas fa-phone"></i> 0984752534 (Sales Contacts)</p>
+                <p><i class="fas fa-envelope"></i> sales.primerealestateltd@gmail.com</p>
+                <p><i class="fas fa-clock"></i> Mon-Fri: 8am - 4pm</p>
+            </div>
+            <div class="contact-form">
+                <h3>Enquire Now</h3>
+                <form>
+                    <input type="text" placeholder="Your Name">
+                    <input type="email" placeholder="Your Email">
+                    <textarea rows="4" placeholder="Your Message"></textarea>
+                    <button type="submit" class="btn">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+
+    <footer>
+        <p>&copy; 2026 Prime Real Estate. All rights reserved.</p>
+        <div class="footer-links">
+            <a href="file:///C:/xampp/htdocs/Prime%20Real%20Estate.html#">Privacy Policy</a>
+            <a href="file:///C:/xampp/htdocs/Prime%20Real%20Estate.html#">Terms of Service</a>
+            <a href="file:///C:/xampp/htdocs/Prime%20Real%20Estate.html#">Sitemap</a>
+        </div>
+    </footer>
+    
